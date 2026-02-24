@@ -13,7 +13,7 @@
 
 <style>
 body{
-    background: radial-gradient(circle at top, #1f1f3a, #07070f 70%);
+    background: radial-gradient(circle at top, #2a2a55, #0f1020 70%);
     font-family:'Segoe UI',Roboto,sans-serif;
     color:white;
     margin:0;
@@ -21,25 +21,32 @@ body{
     justify-content:center;
     align-items:center;
     min-height:100vh;
-    padding:25px 12px;
+    padding:25px 14px;
 }
 
 /* CARD */
 .main-card{
     width:100%;
     max-width:420px;
-    background:rgba(255,255,255,0.06);
-    border-radius:32px;
-    border:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(22px) saturate(140%);
-    -webkit-backdrop-filter:blur(22px) saturate(140%);
+    background:rgba(255,255,255,0.08);
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
     box-shadow:
-        0 10px 40px rgba(0,0,0,.55),
-        inset 0 0 25px rgba(255,255,255,.05);
+        0 15px 50px rgba(0,0,0,.6),
+        inset 0 0 20px rgba(255,255,255,.05);
     overflow:hidden;
     display:flex;
     flex-direction:column;
     animation:cardFade .6s ease;
+    
+    transition: .3s ease;
+}
+
+.main-card:hover{
+    transform:translateY(-4px);
+}
 }
 
 @keyframes cardFade{
@@ -47,65 +54,64 @@ body{
     to{opacity:1; transform:translateY(0);}
 }
 
-#app{width:100%;}
+.menu-container{
+    padding:22px 20px 30px;
+}
 
-.menu-container{padding:18px 18px 26px 18px;}
-
+/* SECTION TITLE */
 .section-title{
-    font-size:.7rem;
-    color:#9ca3af;
-    margin:18px 6px 12px;
+    font-size:.75rem;
+    color:#a5b4fc;
+    margin:20px 4px 14px;
     letter-spacing:2px;
     font-weight:600;
 }
 
+/* BUTTON ITEM */
 .app-item{
     display:flex;
     align-items:center;
     gap:14px;
-    background:rgba(255,255,255,0.07);
-    padding:14px 18px;
-    margin-bottom:12px;
-    border-radius:18px;
+    background:rgba(255,255,255,0.09);
+    padding:15px 18px;
+    margin-bottom:14px;
+    border-radius:16px;
     text-decoration:none;
     color:white;
     font-size:.95rem;
-    border:1px solid rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.08);
     transition:.25s cubic-bezier(.2,.8,.2,1);
 }
 
 .app-item i{
-    font-size:1.25rem;
+    font-size:1.2rem;
     width:26px;
     text-align:center;
 }
 
-.app-item:active{
-    transform:scale(.97);
-    background:rgba(255,255,255,0.16);
+.app-item:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,0.18);
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
 }
 
-@media(hover:hover){
-    .app-item:hover{
-        transform:translateY(-2px);
-        background:rgba(255,255,255,0.16);
-        box-shadow:0 6px 18px rgba(0,0,0,.35);
-    }
+.app-item:active{
+    transform:scale(.96);
 }
 
 /* POPUP */
 .popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.82);
+    background:rgba(0,0,0,.75);
     display:flex;
     justify-content:center;
     align-items:center;
     z-index:10000;
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(8px);
     opacity:0;
     pointer-events:none;
-    transition:.25s ease;
+    transition:.3s ease;
 }
 
 .popup.show{
@@ -114,36 +120,47 @@ body{
 }
 
 .popup-content{
-    background:rgba(18,18,32,.95);
-    padding:24px 20px;
-    border-radius:26px;
+    background:#111125;
+    padding:26px 22px;
+    border-radius:22px;
     width:88%;
     max-width:360px;
     border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 20px 60px rgba(0,0,0,.65);
+    box-shadow:0 25px 60px rgba(0,0,0,.7);
     transform:scale(.9);
-    transition:.25s ease;
+    transition:.3s ease;
 }
 
-.popup.show .popup-content{transform:scale(1);}
+.popup.show .popup-content{
+    transform:scale(1);
+}
 
+/* OPTION BOX */
 .option-box{
-    background:rgba(255,255,255,.06);
-    padding:14px;
-    margin-bottom:12px;
+    background:rgba(255,255,255,.07);
+    padding:16px;
+    margin-bottom:14px;
     border-radius:14px;
     cursor:pointer;
-    transition:.2s;
+    transition:.25s;
 }
 
-.option-box:active{
-    transform:scale(.96);
+.option-box:hover{
     background:#00f2ff;
     color:#000;
+    transform:translateY(-2px);
 }
 
-.option-box h4{margin:0;font-size:.95rem;}
-.option-box p{margin:5px 0 0 0;font-size:.72rem;opacity:.75;}
+.option-box h4{
+    margin:0;
+    font-size:.95rem;
+}
+
+.option-box p{
+    margin:6px 0 0 0;
+    font-size:.75rem;
+    opacity:.75;
+}
 </style>
 </head>
 
@@ -215,7 +232,5 @@ if(url)window.open(url,"_blank");
 </script>
 
 
-}
-</script>
 </body>
 </html>
