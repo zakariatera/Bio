@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テラ—くん | Profile Card</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hanzcode1/LinktreeBuilder@main/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#07070f">
+
+<style>
+body{
+    background: radial-gradient(circle at top, #1f1f3a, #07070f 70%);
+    font-family:'Segoe UI',Roboto,sans-serif;
+    color:white;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:25px 12px;
+}
+
+/* CARD */
+.main-card{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.06);
+    border-radius:32px;
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(22px) saturate(140%);
+    -webkit-backdrop-filter:blur(22px) saturate(140%);
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.55),
+        inset 0 0 25px rgba(255,255,255,.05);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    animation:cardFade .6s ease;
+}
+
+@keyframes cardFade{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+#app{width:100%;}
+
+.menu-container{padding:18px 18px 26px 18px;}
+
+.section-title{
+    font-size:.7rem;
+    color:#9ca3af;
+    margin:18px 6px 12px;
+    letter-spacing:2px;
+    font-weight:600;
+}
+
+.app-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:rgba(255,255,255,0.07);
+    padding:14px 18px;
+    margin-bottom:12px;
+    border-radius:18px;
+    text-decoration:none;
+    color:white;
+    font-size:.95rem;
+    border:1px solid rgba(255,255,255,0.07);
+    transition:.25s cubic-bezier(.2,.8,.2,1);
+}
+
+.app-item i{
+    font-size:1.25rem;
+    width:26px;
+    text-align:center;
+}
+
+.app-item:active{
+    transform:scale(.97);
+    background:rgba(255,255,255,0.16);
+}
+
+@media(hover:hover){
+    .app-item:hover{
+        transform:translateY(-2px);
+        background:rgba(255,255,255,0.16);
+        box-shadow:0 6px 18px rgba(0,0,0,.35);
+    }
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10000;
+    backdrop-filter:blur(12px);
+    opacity:0;
+    pointer-events:none;
+    transition:.25s ease;
+}
+
+.popup.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.popup-content{
+    background:rgba(18,18,32,.95);
+    padding:24px 20px;
+    border-radius:26px;
+    width:88%;
+    max-width:360px;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 20px 60px rgba(0,0,0,.65);
+    transform:scale(.9);
+    transition:.25s ease;
+}
+
+.popup.show .popup-content{transform:scale(1);}
+
+.option-box{
+    background:rgba(255,255,255,.06);
+    padding:14px;
+    margin-bottom:12px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option-box:active{
+    transform:scale(.96);
+    background:#00f2ff;
+    color:#000;
+}
+
+.option-box h4{margin:0;font-size:.95rem;}
+.option-box p{margin:5px 0 0 0;font-size:.72rem;opacity:.75;}
+</style>
+</head>
+
+<body>
+
+<div class="main-card">
+    <div id="app"></div>
+
+    <div class="menu-container">
+        <div class="section-title">Media Sosial</div>
+        <a href="https://www.instagram.com/" class="app-item" target="_blank"><i class="fab fa-instagram" style="color:#E1306C"></i> Instagram</a>
+        <a href="https://www.facebook.com/" class="app-item" target="_blank"><i class="fab fa-facebook" style="color:#1877F2"></i> Facebook</a>
+        <a href="https://www.tiktok.com/" class="app-item" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="https://www.youtube.com/" class="app-item" target="_blank"><i class="fab fa-youtube" style="color:#FF0000"></i> YouTube</a>
+/
+        <div class="section-title">Koleksi</div>
+        <a href="#" class="app-item" onclick="openPopup('gamePopup')"><i class="fas fa-gamepad" style="color:#00f2ff"></i>Game</a>
+        <a href="#" class="app-item" onclick="openPopup('comicPopup')"><i class="fas fa-book-open" style="color:#a855f7"></i>Komik</a>
+    </div>
+</div>
+
+<!-- GAME POPUP -->
+<div class="popup" id="gamePopup" onclick="closePopup('gamePopup')">
+<div class="popup-content" onclick="event.stopPropagation()">
+<h3 style="text-align:center"></h3>
+<div class="option-box" onclick="goApp('ml')"><h4>Mobile Legends</h4><p>Game kontol</p></div>
+<div class="option-box" onclick="goApp('spike')"><h4>The Spike Cross</h4><p>Game pembaik</p></div>
+<div class="option-box" onclick="goApp('uma')"><h4>Umamusume</h4><p>gudang waifu</p></div>
+<div class="option-box" onclick="goApp('opbr')"><h4>One Piece Bounty Rush</h4><p>game kikir</p></div>
+</div>
+</div>
+
+<!-- KOMIK POPUP -->
+<div class="popup" id="comicPopup" onclick="closePopup('comicPopup')">
+<div class="popup-content" onclick="event.stopPropagation()">
+<h3 style="text-align:center"></h3>
+<div class="option-box" onclick="goApp('webtoon')"><h4>Line Webtoon</h4><p>Baca komik resmi gratis.</p></div>
+<div class="option-box" onclick="goApp('wibuku')"><h4>Wibuku</h4><p>Info anime dan komunitas wibu.</p></div>
+<div class="option-box" onclick="goApp('mangaevo')"><h4>Manga Evo</h4><p>Portal baca manga terlengkap.</p></div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hanzcode1/LinktreeBuilder@main/script.js"></script>
+
+<script>
+Linktree.init({
+  img:"mahiru.jpg",
+  nama:"テラ—くん",
+  deskripsi:"Web Developer | ウェブ開発者",
+  footer:"© 2026"
+});
+
+function openPopup(id){document.getElementById(id).classList.add("show");}
+function closePopup(id){document.getElementById(id).classList.remove("show");}
+
+function goApp(app){
+let url="";
+switch(app){
+case'ml':url="https://play.google.com/store/apps/details?id=com.mobile.legends";break;
+case'spike':url="https://play.google.com/store/apps/details?id=com.daerisoft.thespikerm";break;
+case'uma':url="https://play.google.com/store/apps/details?id=jp.co.cygames.umamusume";break;
+case'opbr':url="https://play.google.com/store/apps/details?id=com.bandainamcoent.opbrww";break;
+case'webtoon':url="https://play.google.com/store/apps/details?id=com.naver.linwebtoon";break;
+case'wibuku':url="https://play.google.com/store/search?q=wibuku&c=apps";break;
+case'mangaevo':url="https://play.google.com/store/search?q=manga+evo&c=apps";break;
+}
+if(url)window.open(url,"_blank");
+}
+</script>
+
+
+}
+</script>
+</body>
+</html>
