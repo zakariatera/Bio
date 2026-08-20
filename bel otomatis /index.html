@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bel Sekolah Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+<div>Alarm</div>
+<div class="addBtn" onclick="openModal()">+</div>
+</header>
+
+<div class="clock" id="clock"></div>
+<div class="container" id="list"></div>
+
+<div class="modal" id="modal">
+<div class="modalHeader">
+<div onclick="closeModal()">✕</div>
+<div id="modalTitle">Tambah Alarm</div>
+<div></div>
+</div>
+
+<div class="modalBody">
+
+<div class="row">
+<select id="hari"></select>
+</div>
+
+<div class="row">
+<input type="time" id="jam">
+</div>
+
+<div class="row">
+<input type="text" id="ket" placeholder="Label alarm">
+</div>
+
+<div class="row">
+<small>Musik Bel (Opsional):</small>
+<input type="file" id="musikInput" accept="audio/mp3">
+</div>
+
+<button class="save" onclick="saveAlarm()">Simpan Alarm</button>
+<button class="delete" id="delBtn" onclick="deleteAlarm()">Hapus Alarm</button>
+
+</div>
+</div>
+
+<div class="popup" id="popup">
+<h1 id="alarmText"></h1>
+<button class="stopBtn" onclick="stopAlarm()">MATIKAN</button>
+</div>
+
+<audio id="sound" loop></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>

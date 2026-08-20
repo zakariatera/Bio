@@ -1,0 +1,24 @@
+body{
+font-family:Inter;
+background:#f1f5f9;
+}
+
+.section{
+display:none;
+}
+
+.section.active{
+display:block;
+animation:fade .3s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}

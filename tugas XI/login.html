@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Web Page - Sign In</title>
+  
+  <style>
+    /* Reset & Base Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header / Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links .nav-item {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links .nav-item:hover {
+      color: #007bff;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .search-input {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: #007bff;
+    }
+
+    .btn-search {
+      padding: 0.5rem 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .btn-search:hover {
+      background-color: #0056b3;
+    }
+
+    /* Login Form Section */
+    .login-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .login-card {
+      background-color: #ffffff;
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .brand-logo {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+      line-height: 1.2;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #007bff;
+    }
+
+    .btn-submit {
+      padding: 0.75rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #218838;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <nav class="nav-links">
+      <a href="index.html" class="nav-item">Home</a>
+    </nav>
+    
+    <div class="search-container">
+      <form action="#" method="GET" class="search-form">
+        <input 
+          type="search" 
+          name="query" 
+          placeholder="Search..." 
+          aria-label="Search"
+          class="search-input"
+        >
+        <button type="submit" class="btn-search">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="login-container">
+    <div class="login-card">
+      <h1 class="brand-logo">Satrio<br>Lich</h1>
+      
+      <form class="login-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="username" class="sr-only">Username</label>
+          <input 
+            type="text" 
+            id="username" 
+            name="lich" 
+            placeholder="Username" 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="sr-only">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="cihuy" 
+            placeholder="Password" 
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn-submit">Sign in</button>
+      </form>
+    </div>
+  </main>
+
+</body>
+</html>

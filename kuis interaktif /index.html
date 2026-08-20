@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Soal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+<nav id="navbar" class="hidden bg-white border-b shadow-sm">
+
+<div class="max-w-5xl mx-auto px-4">
+
+<div class="flex justify-between items-center h-16">
+
+<div onclick="showSection('dashboard')" class="flex items-center gap-2 cursor-pointer">
+
+<div class="bg-blue-600 text-white p-2 rounded-lg">
+<i class="ph ph-exam"></i>
+</div>
+
+<span class="font-bold text-lg">Soal</span>
+
+</div>
+
+<button onclick="logout()" class="flex items-center gap-2 text-red-600 font-semibold">
+
+<i class="ph ph-sign-out"></i>
+Keluar
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<main class="flex-grow max-w-4xl mx-auto p-4 w-full">
+
+<!-- LOGIN -->
+
+<section id="login" class="section active max-w-md mx-auto mt-24">
+
+<div class="bg-white p-8 rounded-2xl shadow">
+
+<h2 class="text-2xl font-bold text-center mb-6">Login</h2>
+
+<input class="w-full border p-3 rounded-lg mb-4" placeholder="Email" value="admin">
+
+<input type="password" class="w-full border p-3 rounded-lg mb-6" placeholder="Password" value="admin">
+
+<button onclick="login()" class="w-full bg-blue-600 text-white py-3 rounded-lg">
+Masuk
+</button>
+
+</div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="section text-center mt-16">
+
+<h2 class="text-3xl font-bold mb-10">Dashboard</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div onclick="menuBuat()" class="bg-white p-10 rounded-2xl shadow hover:shadow-lg cursor-pointer">
+
+<h3 class="text-xl font-bold mb-2">Buat Soal</h3>
+
+<p class="text-gray-500">Tambah atau edit soal</p>
+
+</div>
+
+<div onclick="menuKerjakan()" class="bg-white p-10 rounded-2xl shadow hover:shadow-lg cursor-pointer">
+
+<h3 class="text-xl font-bold mb-2">Kerjakan Kuis</h3>
+
+<p class="text-gray-500">Mulai mengerjakan kuis</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- KELOLA SOAL -->
+
+<section id="buatSoal" class="section">
+
+<button onclick="showSection('dashboard')" class="mb-6 flex items-center gap-2 text-gray-600">
+<i class="ph ph-arrow-left"></i> Kembali
+</button>
+
+<h2 class="text-2xl font-bold mb-6">Kelola Soal</h2>
+
+<button onclick="tambahSoal()" class="bg-blue-600 text-white px-6 py-2 rounded-lg mb-6">
+Tambah Soal
+</button>
+
+<div id="listSoal" class="space-y-6"></div>
+
+<button onclick="simpanSoal()" class="bg-green-600 text-white px-6 py-3 rounded-lg mt-6">
+Simpan Semua
+</button>
+
+</section>
+
+
+<!-- KERJAKAN -->
+
+<section id="kerjakan" class="section">
+
+<button onclick="showSection('dashboard')" class="mb-6 flex items-center gap-2 text-gray-600">
+<i class="ph ph-arrow-left"></i> Kembali
+</button>
+
+<h2 class="text-2xl font-bold mb-6">Kerjakan Kuis</h2>
+
+<div id="kuis"></div>
+
+<button onclick="cekJawaban()" class="bg-blue-600 text-white px-6 py-3 rounded-lg mt-6">
+Cek Skor
+</button>
+
+<div id="hasil" class="mt-10"></div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

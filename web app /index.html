@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashavin Coffee Space</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #1c1c1c;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: url('https://via.placeholder.com/800x400') center/cover;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #c59d5f;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+/* Section */
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Menu */
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu-item {
+  background: #222;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+/* Gallery */
+.gallery img {
+  width: 150px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1c1c1c;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>Ashavin Coffee</h2>
+  <div>
+    <a href="#menu">Menu</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Ashavin Coffee Space</h1>
+  <p>Tempat Nongkrong Nyaman • Buka 24 Jam</p>
+  <button class="btn">Lihat Menu</button>
+</div>
+
+<!-- Tentang -->
+<div class="section">
+  <h2>Tentang Kami</h2>
+  <p>Kedai kopi cozy di Ponorogo, cocok buat nongkrong dan nugas.</p>
+</div>
+
+<!-- Menu -->
+<div class="section" id="menu">
+  <h2>Menu</h2>
+
+  <div class="menu-container" id="menuList">
+    <!-- MENU BISA DITAMBAH DI JS -->
+  </div>
+</div>
+
+<!-- Galeri -->
+<div class="section gallery" id="galeri">
+  <h2>Galeri</h2>
+
+  <!-- GANTI LINK FOTO DI SINI -->
+  <img src="https://via.placeholder.com/150">
+  <img src="https://via.placeholder.com/150">
+  <img src="https://via.placeholder.com/150">
+</div>
+
+<!-- Kontak -->
+<div class="section" id="kontak">
+  <h2>Kontak</h2>
+  <p>📍 Jl. Bhayangkara No.33, Ponorogo</p>
+  <p>📞 0851-7954-5689</p>
+</div>
+
+<footer>
+  <p>© 2026 Ashavin Coffee Space</p>
+</footer>
+
+<script>
+/* =========================
+   DATA MENU (EDIT DI SINI)
+========================= */
+const menu = [
+  { nama: "Espresso", harga: "Rp25.000" },
+  { nama: "Latte", harga: "Rp30.000" },
+  { nama: "Matcha", harga: "Rp28.000" },
+  { nama: "French Fries", harga: "Rp20.000" }
+];
+
+/* TAMPILKAN MENU */
+const menuList = document.getElementById("menuList");
+
+menu.forEach(item => {
+  menuList.innerHTML += `
+    <div class="menu-item">
+      <h3>${item.nama}</h3>
+      <p>${item.harga}</p>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>

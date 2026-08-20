@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online - Tailwind CSS</title>
+    
+    <!-- Memanggil Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi warna kustom khas e-commerce (Orange) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#ee4d2d',
+                            light: '#fb5533',
+                            hover: '#d74326'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+
+    <!-- HEADER & NAVIGASI -->
+    <header class="bg-brand text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex flex-wrap md:flex-nowrap justify-between items-center gap-4">
+            
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-wide flex-shrink-0">TokoKu</a>
+            
+            <!-- Pencarian (Menggunakan form semantik) -->
+            <form class="flex w-full md:w-1/2 order-3 md:order-2" action="#" aria-label="Formulir pencarian">
+                <input type="search" placeholder="Cari produk, merk, dan toko..." 
+                       class="w-full px-4 py-2 text-gray-700 bg-white border-none rounded-l-sm focus:outline-none focus:ring-2 focus:ring-brand-light" required>
+                <button type="submit" 
+                        class="px-6 py-2 bg-brand-light hover:bg-brand-hover text-white font-medium rounded-r-sm transition-colors duration-200">
+                    Cari
+                </button>
+            </form>
+            
+            <!-- Menu / Keranjang -->
+            <nav aria-label="Navigasi pengguna" class="order-2 md:order-3 flex-shrink-0">
+                <button class="flex items-center gap-2 hover:text-gray-200 transition-colors" aria-label="Lihat keranjang">
+                    <!-- Ikon SVG Keranjang -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="hidden md:inline font-medium">Keranjang</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main class="container mx-auto px-4 py-6">
+        
+        <!-- Banner Promo -->
+        <section aria-labelledby="promo-title" class="bg-white p-6 md:p-10 mb-6 text-center rounded-md shadow-sm">
+            <h2 id="promo-title" class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Promo Spesial Hari Ini!</h2>
+            <p class="text-gray-600 md:text-lg">Diskon hingga 50% untuk produk pilihan. Jangan sampai kehabisan!</p>
+        </section>
+
+        <!-- Daftar Kategori -->
+        <section aria-labelledby="category-title" class="mb-8">
+            <h2 id="category-title" class="sr-only">Kategori Produk</h2>
+            <ul class="flex flex-wrap justify-center gap-3 md:gap-4">
+                <li><a href="#" class="block bg-white px-5 py-3 rounded-md shadow-sm hover:text-brand hover:shadow-md transition">Elektronik</a></li>
+                <li><a href="#" class="block bg-white px-5 py-3 rounded-md shadow-sm hover:text-brand hover:shadow-md transition">Pakaian Pria</a></li>
+                <li><a href="#" class="block bg-white px-5 py-3 rounded-md shadow-sm hover:text-brand hover:shadow-md transition">Pakaian Wanita</a></li>
+                <li><a href="#" class="block bg-white px-5 py-3 rounded-md shadow-sm hover:text-brand hover:shadow-md transition">Kecantikan</a></li>
+            </ul>
+        </section>
+
+        <!-- Grid Produk -->
+        <section aria-labelledby="product-title">
+            <h2 id="product-title" class="text-xl font-bold text-gray-800 mb-4 px-1 border-b-4 border-brand inline-block pb-1">Rekomendasi</h2>
+            
+            <!-- Grid responsif: 2 kolom (HP), 3 kolom (Tablet), 5 kolom (Desktop) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+                
+                <!-- Kartu Produk 1 (Menggunakan tag article) -->
+                <article class="bg-white rounded-md shadow-sm border border-transparent hover:border-brand hover:-translate-y-1 hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden flex flex-col">
+                    <figure class="bg-gray-200 aspect-square flex items-center justify-center text-gray-500 m-0">
+                        <span>Gambar 1</span>
+                    </figure>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm text-gray-700 leading-tight mb-2 line-clamp-2">Sepatu Sneakers Pria Casual Nyaman Dipakai</h3>
+                        <div class="mt-auto">
+                            <p class="text-brand font-bold text-base md:text-lg">Rp 150.000</p>
+                            <p class="text-xs text-gray-500 text-right mt-1">Terjual 1,2RB</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Kartu Produk 2 -->
+                <article class="bg-white rounded-md shadow-sm border border-transparent hover:border-brand hover:-translate-y-1 hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden flex flex-col">
+                    <figure class="bg-gray-200 aspect-square flex items-center justify-center text-gray-500 m-0">
+                        <span>Gambar 2</span>
+                    </figure>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm text-gray-700 leading-tight mb-2 line-clamp-2">Tas Ransel Kanvas Pria Wanita Kapasitas Besar</h3>
+                        <div class="mt-auto">
+                            <p class="text-brand font-bold text-base md:text-lg">Rp 85.000</p>
+                            <p class="text-xs text-gray-500 text-right mt-1">Terjual 500</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Kartu Produk 3 -->
+                <article class="bg-white rounded-md shadow-sm border border-transparent hover:border-brand hover:-translate-y-1 hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden flex flex-col">
+                    <figure class="bg-gray-200 aspect-square flex items-center justify-center text-gray-500 m-0">
+                        <span>Gambar 3</span>
+                    </figure>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm text-gray-700 leading-tight mb-2 line-clamp-2">Jam Tangan Digital Anti Air Sporty Tahan Lama</h3>
+                        <div class="mt-auto">
+                            <p class="text-brand font-bold text-base md:text-lg">Rp 120.000</p>
+                            <p class="text-xs text-gray-500 text-right mt-1">Terjual 3RB</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Kartu Produk 4 -->
+                <article class="bg-white rounded-md shadow-sm border border-transparent hover:border-brand hover:-translate-y-1 hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden flex flex-col">
+                    <figure class="bg-gray-200 aspect-square flex items-center justify-center text-gray-500 m-0">
+                        <span>Gambar 4</span>
+                    </figure>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm text-gray-700 leading-tight mb-2 line-clamp-2">Kacamata Hitam Anti UV Gaya Retro Klasik</h3>
+                        <div class="mt-auto">
+                            <p class="text-brand font-bold text-base md:text-lg">Rp 45.000</p>
+                            <p class="text-xs text-gray-500 text-right mt-1">Terjual 800</p>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Kartu Produk 5 -->
+                <article class="bg-white rounded-md shadow-sm border border-transparent hover:border-brand hover:-translate-y-1 hover:shadow-md transition-all duration-200 cursor-pointer overflow-hidden flex flex-col hidden lg:flex">
+                    <figure class="bg-gray-200 aspect-square flex items-center justify-center text-gray-500 m-0">
+                        <span>Gambar 5</span>
+                    </figure>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm text-gray-700 leading-tight mb-2 line-clamp-2">Kemeja Polos Pria Lengan Pendek Katun Premium</h3>
+                        <div class="mt-auto">
+                            <p class="text-brand font-bold text-base md:text-lg">Rp 75.000</p>
+                            <p class="text-xs text-gray-500 text-right mt-1">Terjual 2,1RB</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SEMANTIK -->
+    <footer class="bg-white border-t mt-12 py-6 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 TokoKu. Hak cipta dilindungi.</p>
+    </footer>
+
+</body>
+</html>
